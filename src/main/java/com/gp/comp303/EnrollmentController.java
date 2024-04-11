@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import com.jc.assignment2.Enrollment;
-import com.jc.assignment2.EnrollmentRepository;
+import com.gp.comp303.Enrollment;
+import com.gp.comp303.EnrollmentRepository;
 
 @Controller
 public class EnrollmentController {
