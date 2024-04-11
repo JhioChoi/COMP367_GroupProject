@@ -58,7 +58,7 @@ public class StudentController {
 
     
     @PostMapping("/register")
-    public String registerStudent(@Valid Student student, BindingResult result, Model model) {
+    public String registerStudent(Student student, BindingResult result, Model model) {
         if (result.hasErrors()) {
             
             return "index";
