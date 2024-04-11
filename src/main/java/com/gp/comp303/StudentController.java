@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.validation.BindingResult;
 
 import jakarta.servlet.http.HttpSession;
-import jakarta.validation.Valid;
+
 import java.util.Optional;
-import com.jc.assignment2.Student;
-import com.jc.assignment2.StudentRepository;
+import com.gp.comp303.Student;
+import com.gp.comp303.StudentRepository;
 
 @Controller
 public class StudentController {
@@ -58,7 +58,7 @@ public class StudentController {
 
     
     @PostMapping("/register")
-    public String registerStudent(@Valid Student student, BindingResult result, Model model) {
+    public String registerStudent(Student student, BindingResult result, Model model) {
         if (result.hasErrors()) {
             
             return "index";
