@@ -1,10 +1,8 @@
 package com.gp.comp303;
 
 public class LoginDto {
-    @NotEmpty(message = "Username is required.")
     private String userName;
 
-    @NotEmpty(message = "Password is required")
     private String password;
 
 	public String getUserName() {
