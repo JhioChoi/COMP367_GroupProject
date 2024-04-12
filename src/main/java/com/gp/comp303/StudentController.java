@@ -85,7 +85,7 @@ public class StudentController {
         }
 
         session.setAttribute("studentId", student.getStudentId());
-        return "redirect:/program";
+        return "redirect:/programs";
     }
 
 }
