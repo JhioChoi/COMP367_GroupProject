@@ -14,7 +14,9 @@ public class Student {
     private Long studentId;
 
     private String userName;
+    
     private String password;
+    
     private String firstName;
     private String lastName;
     private String email;
