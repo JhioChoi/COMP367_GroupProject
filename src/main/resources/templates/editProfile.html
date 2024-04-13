@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/style.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+</head>
+<body>
+    <h1>Edit Profile</h1>
+    <form th:action="@{/profile/update}" th:object="${student}" method="post">
+		<input type="hidden" th:field="*{studentId}">
+        <input type="text" th:field="*{firstName}" placeholder="First name" required>
+        <input type="text" th:field="*{lastName}" placeholder="Last name" required>
+        <input type="text" th:field="*{email}" placeholder="Email" required>
+        <input type="text" th:field="*{address}" placeholder="Address" required>
+        <input type="text" th:field="*{city}" placeholder="City" required>
+        <input type="text" th:field="*{postalCode}" placeholder="Postal code" required>
+        <input type="hidden" th:field="*{userName}">
+        <input type="hidden" th:field="*{password}">
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
