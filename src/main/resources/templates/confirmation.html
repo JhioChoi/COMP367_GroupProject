@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<link rel="stylesheet" th:href="@{/style.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation of payment</title>
+</head>
+<body>
+    <h1>Confirmation of payment</h1>
+    <p th:text="'Payment verification number: ' + ${confirmationNumber}"></p>
+    <p th:text="'Payment amount: ' +'$' +${amountPaid}"></p>
+    <p th:text="${message}"></p>
+
+</body>
+</html>
