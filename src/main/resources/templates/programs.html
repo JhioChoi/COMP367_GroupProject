@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/style.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Select a program</title>
+</head>
+<body>
+    <h1>Select a program</h1>
+    <form th:action="@{/registerProgram}" method="post">
+        <select name="selectedProgramId">
+            <option th:each="program : ${programs}" th:value="${program.programCode}" th:text="${program.programName}"></option>
+        </select>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
