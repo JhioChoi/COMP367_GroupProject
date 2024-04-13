@@ -23,16 +23,6 @@
         <div th:if="${successMessage}" class="alert alert-success" role="alert">
             <p th:text="${successMessage}"></p>
         </div>
-        
-        <h1>Login</h1>
-        <form th:action="@{/login}" method="post">
-            <input type="text" name="userName" placeholder="ID" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-        <div th:if="${loginError}" class="alert alert-danger">
-            <p th:text="${loginError}"></p>
-        </div>
     </div>
 </body>
 </html>
