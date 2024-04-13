@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/style.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter payment information</title>
+</head>
+<body>
+    <h1>Enter payment information</h1>
+    <form th:action="@{/payment/processPayment}" method="post">
+        <div>
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" required>
+        </div>
+        <div>
+            <label for="expirationDate">Expiration date:</label>
+            <input type="text" id="expirationDate" name="expirationDate" required>
+        </div>
+        <div>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required>
+        </div>
+        <div>
+            <label for="cardHolderName">Cardholder Name:</label>
+            <input type="text" id="cardHolderName" name="cardHolderName" required>
+        </div>
+        <button type="submit">Pay</button>
+    </form>
+</body>
+</html>
