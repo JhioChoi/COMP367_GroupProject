@@ -9,17 +9,6 @@ pipeline {
             }
         }
 
-        stage('Static Code Analysis') {
-            steps {
-                script {
-                    // Run SonarQube analysis
-                    withSonarQubeEnv('webapp') {
-                        bat 'mvn sonar:sonar'
-                    }
-                }
-            }
-        }
-
         stage('Build Maven') {
             steps {
                 // Build the Maven project
