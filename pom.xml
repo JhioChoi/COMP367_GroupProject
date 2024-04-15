@@ -49,7 +49,27 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- Add SonarQube Maven plugin -->
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.11.0.3922</version>
+			</plugin>
 		</plugins>
 	</build>
+
+	<!-- SonarQube configuration -->
+	<profiles>
+		<profile>
+			<id>sonar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!-- SonarQube server URL -->
+				<sonar.host.url>http://localhost:9001</sonar.host.url>
+			</properties>
+		</profile>
+	</profiles>
 
 </project>
