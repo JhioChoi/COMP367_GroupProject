@@ -17,9 +17,9 @@
 		<java.version>17</java.version>
 	</properties>
 	<scm>
-    		<connection>scm:git:https://github.com/Harriet_atieno/COMP367_GroupProject.git</connection>
-    		<developerConnection>scm:git:https://github.com/Harriet_atieno/COMP367_GroupProject.git</developerConnection>
-    		<url>https://github.com/Harriet_atieno/COMP367_GroupProject</url>
+    		<connection>scm:git:https://github.com/Harrieguru/COMP367_GroupProject.git</connection>
+    		<developerConnection>scm:git:https://github.com/Harrieguru/COMP367_GroupProject.git</developerConnection>
+    		<url>https://github.com/Harrieguru/COMP367_GroupProject</url>
 	</scm>
 	<dependencies>
 		<dependency>
