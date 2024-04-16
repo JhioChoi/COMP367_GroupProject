@@ -38,11 +38,10 @@ pipeline {
 
         stage('Deliver') {
             steps {
-                // Deliver artifact using your project's build tool
-                // a mock step 
-                echo 'Delivering artifact...'
-                // Deploy artifact using your project's build tool
-                bat 'mvn deploy'
+                echo 'Releasing artifact...'
+                // perform a release with the Maven Release Plugin
+                bat 'mvn release:prepare release:perform'
+                echo 'Artifact has been released successfully.'
             }
         }
 
