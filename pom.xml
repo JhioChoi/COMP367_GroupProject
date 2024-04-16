@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.gp.comp303</groupId>
 	<artifactId>GroupProject_COMP303</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>GroupProejct_COMP303</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
