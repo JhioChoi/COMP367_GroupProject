@@ -32,10 +32,10 @@ pipeline {
 
                 // Execute SonarQube analysis using the scanner
                 withEnv(["PATH+SCANNER=${scannerHome}/bin"]) {
-                    bat "${scannerHome}/bin/sonar-scanner.bat \\
+                    bat """${scannerHome}/bin/sonar-scanner.bat \\
                         -Dsonar.login=${env.sonarToken} \\
                         -Dsonar.projectName=COMP367_GroupProject \\
-                        -Dsonar.projectKey=COMP367_GroupProject"
+                        -Dsonar.projectKey=COMP367_GroupProject"""
                 }
             }
         }
