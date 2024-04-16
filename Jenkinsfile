@@ -39,8 +39,10 @@ pipeline {
         stage('Deliver') {
             steps {
                 echo 'Releasing artifact...'
-                // perform a release with the Maven Release Plugin
-                bat 'mvn release:prepare release:perform -DreleaseVersion=0.0.1 -DdevelopmentVersion=0.0.2-SNAPSHOT -DskipTests=true -Darguments="-Dmaven.deploy.skip=true -Dtag=false"'
+                // Use withCredentials to inject GitHub token into Maven command
+                withCredentials([string(credentialsId: 'githubToken', variable: 'GITHUB_TOKEN')]) {
+                    bat 'mvn release:prepare release:perform -DreleaseVersion=0.0.1 -DdevelopmentVersion=0.0.2-SNAPSHOT -DskipTests=true -Darguments="-Dmaven.deploy.skip=true -Dtag=false" -Dgithub.token=${GITHUB_TOKEN}'
+                }
                 echo 'Artifact has been released successfully.'
             }
         }
