@@ -40,7 +40,9 @@ pipeline {
             steps {
                 echo 'Releasing artifact...'
                 // perform a release with the Maven Release Plugin
-                bat 'mvn release:prepare release:perform -DreleaseVersion=0.0.1 -DdevelopmentVersion=0.0.2-SNAPSHOT -DskipTests=true -Darguments="-Dmaven.deploy.skip=true -Dtag=false"'
+                   withCredentials([usernamePassword(credentialsId: '77ff864a-8304-44ab-a1bf-f95d502f7d2e', usernameVariable: 'GITHUB_USERNAME', passwordVariable: 'GITHUB_PASSWORD')]) {
+                        bat "mvn release:prepare release:perform -DreleaseVersion=0.0.1 -DdevelopmentVersion=0.0.2-SNAPSHOT -DskipTests=true -Darguments='-Dmaven.deploy.skip=true -Dtag=false' -Dusername=${GITHUB_USERNAME} -Dpassword=${GITHUB_PASSWORD}"
+                }
                 echo 'Artifact has been released successfully.'
             }
         }
