@@ -28,8 +28,14 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 // Run SonarQube analysis
-                withSonarQubeEnv('sonar-server') {
-                    bat "mvn sonar:sonar -Dsonar.login=${env.sonarToken}"
+                script {
+                    // Define the SonarQube Scanner configuration
+                    def scannerHome = tool 'sonar-scanner'
+
+                    // Execute SonarQube analysis
+                    withEnv(["PATH+SCANNER=${scannerHome}/bin"]) {
+                        bat "${scannerHome}/bin/sonar-scanner.bat -Dsonar.login=${env.sonarToken}"
+                    }
                 }
             }
         }
