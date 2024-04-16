@@ -25,14 +25,11 @@ pipeline {
             }
         }
 
-        stage('Sonar Analysis') {
+        stage('SonarQube analysis') {
             steps {
-                // Execute SonarQube analysis using Maven SonarQube plugin
-                bat """mvn sonar:sonar -Dsonar.url=http://localhost:9000/ ^
-                    -Dsonar.login=squ_2737c83846be05a723627b57ed0cf7a14ecd7035 ^
-                    -Dsonar.projectName=COMP367_GroupProject ^
-                    -Dsonar.java.binaries=. ^
-                    -Dsonar.projectKey=COMP367_GroupProject"""
+                // Run SonarQube analysis
+                withSonarQubeEnv('sonar-server') {
+                    bat "mvn sonar:sonar -Dsonar.login=${env.sonarToken}"
                 }
             }
         }
