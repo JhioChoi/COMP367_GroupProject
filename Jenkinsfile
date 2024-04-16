@@ -40,7 +40,7 @@ pipeline {
             steps {
                 echo 'Releasing artifact...'
                 // perform a release with the Maven Release Plugin
-                bat 'mvn release:prepare release:perform -DtagNameFormat=@{project.artifactId}-@{project.version}'
+                bat 'mvn release:prepare release:perform -DreleaseVersion=0.0.1 -DdevelopmentVersion=0.0.2-SNAPSHOT -DskipTests=true'
                 echo 'Artifact has been released successfully.'
             }
         }
