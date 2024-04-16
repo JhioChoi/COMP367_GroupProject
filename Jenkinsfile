@@ -29,7 +29,7 @@ pipeline {
             steps {
                 // Run SonarQube analysis
                 withSonarQubeEnv('sonar-server') {
-                    bat "mvn sonar:sonar -Dsonar.login=${env.sonarToken}"
+                    bat "mvn sonar:sonar -Dsonar.login=squ_2737c83846be05a723627b57ed0cf7a14ecd7035"
                 }
             }
         }
