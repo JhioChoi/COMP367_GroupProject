@@ -12,7 +12,7 @@ pipeline {
         stage('Sonar Analysis') {
             steps {
                 // Configure SonarQube environment
-                withSonarQubeEnv(credentialsId: 'sonarToken') {
+                withSonarQubeEnv(credentialsId: 'sonarToken', installationName: 'sonar-server') {
                     // Execute SonarQube analysis
                     bat '''"%SCANNER_HOME%\\bin\\sonar-scanner" ^
                         -Dsonar.projectName=COMP367_GroupProject ^
