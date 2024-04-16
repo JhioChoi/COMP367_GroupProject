@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the source code from the repository
+                // Checkout source code from the repository
                 checkout scm
             }
         }
@@ -13,6 +13,8 @@ pipeline {
             steps {
                 // Build the Maven project
                 bat 'mvn clean install'
+                // Archive the artifact
+                archiveArtifacts 'target/*.jar'
             }
         }
 
@@ -31,6 +33,46 @@ pipeline {
                 withSonarQubeEnv('sonar-server') {
                     bat "mvn sonar:sonar -Dsonar.login=squ_2737c83846be05a723627b57ed0cf7a14ecd7035"
                 }
+            }
+        }
+
+        stage('Deliver') {
+            steps {
+                // Deliver artifact using your project's build tool
+                // a mock step 
+                echo 'Delivering artifact...'
+                // Deploy artifact using your project's build tool
+                bat 'mvn deploy'
+            }
+        }
+
+        stage('Deploy to Dev Env') {
+            steps {
+                // Deploy artifact to the development environment
+                // Launch deployed app 
+                echo 'Deploying to Dev Env...'
+                echo 'Launching deployed app...'
+            }
+        }
+
+        stage('Deploy to QAT Env') {
+            steps {
+                // Deploy artifact to the QA/test environment
+                echo 'Deploying to QAT Env...'
+            }
+        }
+
+        stage('Deploy to Staging Env') {
+            steps {
+                // Deploy artifact to the staging environment
+                echo 'Deploying to Staging Env...'
+            }
+        }
+
+        stage('Deploy to Production Env') {
+            steps {
+                // Deploy artifact to the production environment
+                echo 'Deploying to Production Env...'
             }
         }
     }
