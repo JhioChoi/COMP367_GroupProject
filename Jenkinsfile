@@ -24,5 +24,14 @@ pipeline {
                 bat 'mvn jacoco:report'
             }
         }
+
+        stage('SonarQube analysis') {
+            steps {
+                // Run SonarQube analysis
+                withSonarQubeEnv('sonar-server') {
+                    bat "mvn sonar:sonar -Dsonar.login=${env.sonarToken}"
+                }
+            }
+        }
     }
 }
