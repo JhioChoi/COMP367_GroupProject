@@ -25,17 +25,17 @@ pipeline {
             }
         }
 
-        stage('SonarQube analysis') {
+        stage('Sonar Analysis') {
             steps {
-                // Run SonarQube analysis
-                script {
-                    // Define the SonarQube Scanner configuration
-                    def scannerHome = tool 'sonar-scanner'
+                // Define the SonarQube Scanner configuration
+                def scannerHome = tool 'sonar-scanner'
 
-                    // Execute SonarQube analysis
-                    withEnv(["PATH+SCANNER=${scannerHome}/bin"]) {
-                        bat "${scannerHome}/bin/sonar-scanner.bat -Dsonar.login=${env.sonarToken}"
-                    }
+                // Execute SonarQube analysis using the scanner
+                withEnv(["PATH+SCANNER=${scannerHome}/bin"]) {
+                    bat "${scannerHome}/bin/sonar-scanner.bat \\
+                        -Dsonar.login=${env.sonarToken} \\
+                        -Dsonar.projectName=COMP367_GroupProject \\
+                        -Dsonar.projectKey=COMP367_GroupProject"
                 }
             }
         }
