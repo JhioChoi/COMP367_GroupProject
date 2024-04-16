@@ -14,7 +14,7 @@ pipeline {
                 // Configure SonarQube environment
                 withSonarQubeEnv(credentialsId: 'sonarToken', installationName: 'sonar-server') {
                     // Execute SonarQube analysis
-                    bat '''"%SCANNER_HOME%\\bin\\sonar-scanner" ^
+                    bat '''"C:\\SonarQube\\bin\\sonar-scanner" ^
                         -Dsonar.projectName=COMP367_GroupProject ^
                         -Dsonar.projectKey=COMP367_GroupProject ^
                         -Dsonar.sources=. ^
