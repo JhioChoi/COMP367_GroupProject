@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ProgramRepository extends CrudRepository<Program, Long> {
 	
-	Optional<Student> findByUserName(String userName);
+	Optional<Student> findByUserName(String programName);
 }
