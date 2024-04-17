@@ -29,7 +29,7 @@ public class Student {
     
     private String postalCode;
     
-    // getters and setters
+    // getters and setters!
 	public Long getStudentId() {
 		return studentId;
 	}
