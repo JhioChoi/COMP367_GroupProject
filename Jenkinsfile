@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout source code from the repository
-                checkout scm
+                checkout([$class: 'GitSCM', branches: [[name: 'createJenkinsfile']], userRemoteConfigs: [[url: 'https://github.com/Harrieguru/COMP367_GroupProject.git']]])
             }
         }
 
