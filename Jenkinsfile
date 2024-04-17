@@ -1,11 +1,15 @@
 pipeline {
     agent any
 
+    environment {
+        RELEASE_BRANCH = 'createJenkinsfile'
+    }
+
     stages {
         stage('Checkout') {
             steps {
                 // Checkout source code from the repository
-                checkout([$class: 'GitSCM', branches: [[name: 'createJenkinsfile']], userRemoteConfigs: [[url: 'https://github.com/Harrieguru/COMP367_GroupProject.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: RELEASE_BRANCH]], userRemoteConfigs: [[url: 'https://github.com/Harrieguru/COMP367_GroupProject.git']]])
             }
         }
 
@@ -41,7 +45,7 @@ pipeline {
                 echo 'Releasing artifact...'
                 // Use withCredentials to inject GitHub token into Maven command
                 withCredentials([string(credentialsId: 'githubToken', variable: 'GITHUB_TOKEN')]) {
-                    bat 'mvn release:prepare release:perform -Dbranch=createJenkinsfile -DreleaseVersion=0.0.1 -DdevelopmentVersion=0.0.2-SNAPSHOT -DskipTests=true -Darguments="-Dmaven.deploy.skip=true -Dgithub.token=${GITHUB_TOKEN}"'
+                    bat "mvn release:prepare release:perform -DreleaseVersion=0.0.1 -DdevelopmentVersion=0.0.2-SNAPSHOT -DbranchName=${RELEASE_BRANCH} -DskipTests=true -Darguments='-Dmaven.deploy.skip=true -Dgithub.token=${GITHUB_TOKEN}'"
                 }
                 echo 'Artifact has been released successfully.'
             }
