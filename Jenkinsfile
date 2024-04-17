@@ -40,8 +40,40 @@ pipeline {
             steps {
                 echo 'Releasing artifact...'
                 // perform a release with the Maven Release Plugin
-                bat 'mvn release:prepare release:perform -DreleaseVersion=0.0.1 -DdevelopmentVersion=0.0.2-SNAPSHOT -DskipTests=true -Darguments="-Dmaven.deploy.skip=true -Dtag=false"'
+                withCredentials([string(credentialsId: 'githubToken', variable: 'GITHUB_TOKEN')]) {
+                    bat 'mvn release:prepare release:perform -DreleaseVersion=0.0.1 -DdevelopmentVersion=0.0.2-SNAPSHOT -DskipTests=true -Darguments="-Dmaven.deploy.skip=true -Dgithub.token=${GITHUB_TOKEN}"'
+                }
                 echo 'Artifact has been released successfully.'
+            }
+        }
+
+        stage('Deploy to Dev Env') {
+            steps {
+                // Deploy artifact to the development environment
+                // Launch deployed app 
+                echo 'Deploying to Dev Env...'
+                echo 'Launching deployed app...'
+            }
+        }
+
+        stage('Deploy to QAT Env') {
+            steps {
+                // Deploy artifact to the QA/test environment
+                echo 'Deploying to QAT Env...'
+            }
+        }
+
+        stage('Deploy to Staging Env') {
+            steps {
+                // Deploy artifact to the staging environment
+                echo 'Deploying to Staging Env...'
+            }
+        }
+
+        stage('Deploy to Production Env') {
+            steps {
+                // Deploy artifact to the production environment
+                echo 'Deploying to Production Env...'
             }
         }
     }
