@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.gp.comp367</groupId>
 	<artifactId>GroupProject_COMP367</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>GroupProject_COMP367</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -19,7 +19,7 @@
     		<connection>scm:git:https://github.com/Harrieguru/COMP367_GroupProject.git</connection>
     		<developerConnection>scm:git:https://github.com/Harrieguru/COMP367_GroupProject.git</developerConnection>
     		<url>https://github.com/Harrieguru/COMP367_GroupProject</url>
-	  <tag>GroupProject_COMP367-0.0.2</tag>
+	  <tag>GroupProject_COMP367-0.0.1</tag>
   </scm>
 	<dependencies>
 		<dependency>
