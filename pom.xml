@@ -69,6 +69,7 @@
 				<version>3.0.0-M1</version> 
 				<configuration>
 					<goals>install</goals>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
 					<arguments>-Dtag=false</arguments>
 				</configuration>
 			</plugin>
